@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체 클래스</title>
+</head>
+<body>
+    <h1>객체_클래스</h1>
+    <script>
+        'use strict';
+
+        const Dog  = class{
+            constructor(name, age, color){
+                this.name = name;
+                this.age = age;
+                this.color = color;
+                console.log(Dog);
+                
+            }
+            play(){
+               return `${this.name}가 즐겁게 놉니다.`
+            }
+        }
+
+        const Rucy = new Dog('루시', 10, '흰색');
+        console.log(Rucy.name);
+        console.log(Rucy.age);
+        console.log(Rucy.color);
+        console.log(Rucy.play());
+
+        Rucy.age = 11;
+        console.log(Rucy.age);
+    </script>
+</body>
+</html>

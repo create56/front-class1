@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>네비게이션</title>
+    <style>
+        *{margin:0; padding:0;}
+        ul,li{list-style:none;}
+        a{text-decoration: none;}
+
+        .container{margin:50px; min-width:440px;}
+        .controller{padding-top:20px;}
+        .controller li{display:inline-block; margin-right:10px;}
+        .controller li:last-child{margin-right:0px;}
+        .controller li a{display: block;
+                        width:20px; height:20px;
+                        background-color:coral;
+                        border-radius:10px;
+                        transition:all 0.3s;}
+        .container li.on a{
+             width:50px;
+             background-color:#8ac007;}                
+       
+    </style>
+
+    <script>
+        // 독립적으로 필요할떄는 id값을 주는게 좋음
+        window.addEventListener("load",function(){
+          var container = document.getElementsByClassName('container')[0];
+          var controller = container.children[0];
+          var liList = controller.children;
+          
+          for(var i=0; i < liList.length; i++){
+            liList[i].addEventListener('click', function(e){
+                e.preventDefault();
+                for(var j=0; j < liList.length; j++){
+                    liList[j].classList.remove('on');
+                }
+
+                e.currentTarget.classList.add('on');
+                console.log(e.target); 
+                console.log(e.currentTarget);
+                // e.current Target 이벤트가 부착된 부모의 위치를 반환
+                // e.Target 부모로 부터 이벤트가 위임되어 발생하는 자식의 위치, 내가 클릭한 자식 요소를 반환
+                
+            });
+          }
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+      <ul class="controller">
+          <li class="on"><a href="#"></a></li>
+          <li><a href="#"></a></li>
+          <li><a href="#"></a></li>
+          <li><a href="#"></a></li>
+          <li><a href="#"></a></li>
+          <li><a href="#"></a></li>
+      </ul>
+    </div>
+</body>
+</html>

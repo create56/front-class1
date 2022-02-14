@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체</title>
+</head>
+<body>
+    <script>
+        'use strict';
+        function Dog(name, age, color){
+            this.name = name;
+            this.age = age;
+            this.color = color;
+        }
+
+        // 프로토타입
+        const Rucy = new Dog("루시", 10 , "흰색");
+        console.log(`이름 : ${Rucy.name}`);
+        console.log(`나이 : ${Rucy.age}`);
+        console.log(`색 : ${Rucy.color}`);
+        console.log(Rucy);
+    </script>
+</body>
+</html>

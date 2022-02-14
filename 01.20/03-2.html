@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>내장함수_String객체</title>
+</head>
+<body>
+    <script>
+        'use strict';
+        // const str1 = "안녕하세요 JavaScript";
+        // console.log(str1.length);// 글자의 갯수 
+        // console.log(str1.indexOf('J'));
+        // console.log(str1.indexOf('Java'));
+        // console.log(str1.indexOf('java')); // -> 대소문자를 구별하지 못할 경우 -1를 리턴
+        // console.log(str1.indexof('a'));
+        // console.log(str1.lastIndexOf('a'));
+
+        // console.log(str1.charAt(7)); // 전달된 매개변수값 7에 있는 문자를 출력
+        // console.log(str1.includes('Java')); // 객체에 이글자가 포함이 되었는지 여부 확인 지금 true
+        // console.log(str1.includes('java')); // false 대소문자 구분을 함
+
+        // console.log(str1.substring(7));
+        // console.log(str1.substring(7,11)); // 7번위치부터 11번위치까지 글자 추출(범위)
+        // console.log(str1.substring(7,4)); // 7번쨰 글자의 위치에서 4개의 글자만 추출(숫자)
+
+        const str2 = "드라이브,영화감상,게임,쇼핑,잠자기,여행";
+        const hoppy = str2.split(",");
+
+        for(let h of hoppy){
+            console.log(h);
+        }
+
+        hoppy.forEach(function(val,idx,arr){
+            console.log(`${val}, 인덱스:${idx}, 배열${arr}`);
+        });
+
+        console.log('--------------------------------------');
+        let str1 = "안녕하세요. JavaScript"
+        console.log(str1.replace(/안녕하세요/g,'Hello'));
+        
+        // var test = '가나다라 마바사 가나';
+        // var result = test.replace('가', '나');
+        // console.log(result);
+
+        const str3 = '        JavaScript            ';
+        console.log(`|${str3}|`);
+        console.log(`|${str3.trim()}|`);
+
+        console.log(str3.toLowerCase()) // 소문자
+        console.log(str3.toUpperCase()) // 대문자
+    </script>
+</body>s
+</html>

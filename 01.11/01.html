@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>네비게이션</title>
+    <style>
+        *{margin:0; padding:0;}
+        ul,li{list-style:none;}
+        a{text-decoration: none;}
+
+        .container{margin:50px;}
+        #nav > ul >li{float:left; 
+                      position:relative;
+                      width:140px;
+                      height:40px;
+                      text-align:center;
+                      font-size:13px;
+                      /* text-transform: uppercase; */
+                      border-right:1px solid#ccc;
+                      box-sizing:border-box;}
+        #nav > ul > li > a{display:block;
+                          width:100%; line-height:40px;
+                          color:#666;
+                          transition:background 0.4s color 0.4s;}              
+        #nav > ul > li:hover a,
+        #nav > ul > li a.over{font-weight:600;
+                              background: #8ac007;
+                              color:#fff;}
+        #nav .sub{position:absolute; top:40px; 
+                  left:0; width:100%; display: none;}
+        #nav .sub li{border-bottom:1px solid #eaeaea;}
+        #nav .sub li a{display:block; padding:10px;
+                      background: #fff;
+                      color:#666;}
+        #nav .sub li a:hover{background:#f8f8f8;}                                        
+    </style>
+
+    <script>
+        window.addEventListener("load",function(){
+           var nav = document.getElementById("nav");
+           var depth1Li = nav.children[0].children;
+           
+           
+           for(var i = 0; i < depth1Li.length; i++){
+               depth1Li[i].addEventListener('mouseenter', function(e){
+                var link = e.target.children[0]
+                link.classList.add('over');
+
+                var sub = e.target.children[1];
+                sub.style.display = "block";
+
+               });
+               depth1Li[i].addEventListener('mouseleave', function(e){
+                var link = e.target.children[0]
+                link.classList.remove('over');
+
+                var sub = e.target.children[1];
+                sub.style.display = "none";
+               })
+
+           }
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <nav id="nav">
+        <ul>
+            <li>
+                <a href="#">menu1</a>
+                <ul class="sub">
+                    <li><a href="#">submn1</a></li>
+                    <li><a href="#">submn2</a></li>
+                    <li><a href="#">submn3</a></li>
+                    <li><a href="#">submn4</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">menu2</a>
+                <ul class="sub">
+                    <li><a href="#">submn1</a></li>
+                    <li><a href="#">submn2</a></li>
+                    <li><a href="#">submn3</a></li>
+                    <li><a href="#">submn4</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">menu3</a>
+                <ul class="sub">
+                    <li><a href="#">submn1</a></li>
+                    <li><a href="#">submn2</a></li>
+                    <li><a href="#">submn3</a></li>
+                    <li><a href="#">submn4</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">menu4</a>
+                <ul class="sub">
+                    <li><a href="#">submn1</a></li>
+                    <li><a href="#">submn2</a></li>
+                    <li><a href="#">submn3</a></li>
+                    <li><a href="#">submn4</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">menu5</a>
+                <ul class="sub">
+                    <li><a href="#">submn1</a></li>
+                    <li><a href="#">submn2</a></li>
+                    <li><a href="#">submn3</a></li>
+                    <li><a href="#">submn4</a></li>
+                </ul>
+            </li>
+        </ul>
+      </nav>
+    </div>
+</body>
+</html>

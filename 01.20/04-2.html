@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>노드의 삭제</title>
+</head>
+<body>
+    <h2>노드의 삭제</h2>
+    <p>HTML</p>
+    <p id="item">CSS</p>
+    <p id="js" style="background-color: deeppink; color:white">JavaScript</p>
+    <button onclick="removeNode()">요소 노드 삭제</button>
+    <button onclick="removeAttr()">속성 노드 삭제</button>
+    
+
+    <script>
+        'use strict';
+        const removeNode = function(){
+            const parent = document.getElementById('list'); // 부모 Node가 필요
+            const removeItem = document.getElementById('item'); // <p><p>
+            console.log(removeItem);
+            const result = parent.removeAttribute(removeItem);
+            console.log(result);
+            newNode.innerHTML = '<b>새로운 요소</b>' // <p><b>새로운 요소</b></p>
+            document.body.insertBefore(newNode,elNode); 
+        }
+
+        const removeAttr = function(){
+            const js = document.getElementById('js');
+            js.removeAttribute('style');
+        }
+
+      
+       
+    </script>
+</body>
+</html>

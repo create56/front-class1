@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>일반 비동기 처리</h3>
+    <script>
+        'use strict';
+        function work(sec,callback){
+            setTimeout(() => {
+                callback(new Date().toISOString());
+            } , sec * 1000);
+
+        }
+
+        work(1,(result) => {
+            console.log('첫번쨰 수업', result);
+
+            work(1,(result) => {
+            console.log('두번쨰 수업', result);
+            
+            work(1,(result) => {
+            console.log('세번쨰 수업', result);
+
+                });
+            });
+        });
+     
+        
+    </script>
+</body>
+</html> 

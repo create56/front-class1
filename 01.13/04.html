@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            margin-top:35px;
+            height:500px;}
+
+        .box{
+            width:50px;
+            height:50px;
+            background-color:#8ac007;}
+
+        .btn_group{
+            margin-top:50px;}
+            
+        .btn_group a{
+            display:inline-block;
+            margin-right:10px;
+            padding:5px 20px;
+            text-decoration: none;
+            font-size:0.875em;
+            background-color:#666;
+            color:#fff;
+            border-radius: 5px;}    
+    </style>
+    <script>
+        window.addEventListener('load',function(){
+            const box = document.getElementById('box1');
+            box.style.opacity=1;
+
+            // btns
+            const btn1 = document.getElementById('size big');
+            const btn2 = document.getElementById('opacity');
+            const reset = document.getElementById('reset');
+
+            var currentW = 50;
+            var targetW = 400;
+            var op = 1;
+
+            btn1.addEventListener('click',(e) =>{
+                e.preventDefault();
+                let time = setInterval(() => {
+                    if((targetW-currentW) > 10){ // (400 - 50) > 10
+                        currentW += 10;
+                    }
+                    else{
+                        currentW = targetW;
+                        clearInterval(timer);
+                    }
+
+                    box.style.width = currentW + "px";
+                    box.style.height = currentW+ "px";
+                },10);
+            });
+            btn2.addEventListener('click',() =>{});
+            btn3.addEventListener('click',() =>{});
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="box" id="box1"></div>
+        <div class="btn_group">
+            <a href="#" id="size big">size big</a>
+            <a href="#" id="opacity">opacity 0</a>
+            <a href="#" id="reset">reset</a>
+        </div>
+    </div>
+</body>
+</html>

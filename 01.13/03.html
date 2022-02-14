@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin:0; padding:0;}
+
+        /*header */
+        #header{
+            width:100%; height: 900px;
+            background-color:burlywood;
+        }
+
+        #header > div{
+            float:left;
+            width:300px;
+            height:300px;
+            border:1px solid #000;
+            box-sizing:border-box;
+            margin:50px 20px;
+            padding:10px;
+            transform:translateY(100px);
+            transition: all 0.4s;}
+
+        #header .active > div{
+            transform:translateY(0);
+            opacity:1;
+        }
+
+        #header .type1{transition-delay:0;}
+        #header .type2{transition-delay:0.5s;}
+        #header .type3{transition-delay:1s;}
+
+
+        /*page1 */
+
+        #page1{
+            width:100%; height: 900px;
+            background-color:chocolate;
+        }
+
+        #page1 > div{
+            float:left;
+            width:300px;
+            height:300px;
+            border:1px solid #000;
+            box-sizing:border-box;
+            margin:50px 20px;
+            padding:10px;
+            transform:translateY(100px);
+            transition: all 0.4s;}
+
+        #page1 .active > div{
+            transform:translateY(0);
+            opacity:1;
+        }
+
+        #page1 .type1{transition-delay:0;}
+        #page1 .type2{transition-delay:0.5s;}
+        #page1 .type3{transition-delay:1s;}
+
+         /*page2 */
+         #page2{
+            width:100%; height: 900px;
+            background-color:crimson;
+        }
+
+        #page2 > div{
+            opacity:0;
+            float:left;
+            width:300px;
+            height:300px;
+            border:1px solid #000;
+            box-sizing:border-box;
+            margin:50px 20px;
+            padding:10px;
+            transform:translateY(100px);
+            transition: all 0.4s;}
+
+        #page2 .active > div{
+            transform:translateY(0);
+            opacity:1;
+        }
+
+        #page2 .type1{transition-delay:0;}
+        #page2 .type2{transition-delay:0.5s;}
+        #page2 .type3{transition-delay:1s;}
+    </style>
+
+    <script>
+        window.addEventListener('load',function(){
+            const wrapper = document.getElementsByClassName('wrapper')[0];
+            const contents = wrapper.children; 
+            let t = window.pageYOffset; // 원도우 상단 위치 변수
+            let offsety = [];  // 위치 이동 배열
+            let n = 0;  // 카테고리 번호 변수(인덱스)
+            // console.log(contents);
+
+            for(let i=0; i < contents.length; i++){
+                offsety.push(contents[i].offsetTop);
+            }
+
+            // 초기 실행
+            contents[n].classList.add('active');
+            window.addEventListener('scroll', scrollHandler); // 함수 호출하며 스크롤이 될떄 마다 이벤트를 발생하도록
+
+            // function scrollHander(){}
+            // const scrollHandler = () => {
+                function scrollHandler(){
+                    let timer = setTimeout(function(){
+
+                        t = window.pageYOffset;
+                    
+                    if(t < offsety[1]){
+                        n=0; 
+                    } else if(t < offsety[2]){
+                        n=1;
+                        if(t == (document.body.clientHeight - window.innerHeight)){
+                            n=2;
+                        }
+                    } else{
+                        n = 2;
+                    }
+    
+                    for(let j = 0; j < contents.length; j++){
+                        if(j == n){
+                            contents[j].classList.add('active');
+                        }
+                    }
+    
+                    if(n == 2){
+                        window.removeEventListener('scroll',scrollHandler);
+                    }
+                    
+                },10);
+             }                 
+        });
+    </script>
+</head>
+<body>
+    <div class="wrapper">
+        <header id="header">
+            <div class="type1">type1</div>
+            <div class="type2">type2</div>
+            <div class="type3">type3</div>
+        </header>
+        <section id="page1">
+            <div class="type1">type1</div>
+            <div class="type2">type2</div>
+            <div class="type3">type3</div>
+        </section>
+        <section id="page2">
+            <div class="type1">type1</div>
+            <div class="type2">type2</div>
+            <div class="type3">type3</div>
+        </section>
+    </div>
+</body>
+</html>

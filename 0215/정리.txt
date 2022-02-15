@@ -1,0 +1,33 @@
+사용자 정의 모듈
+사용자가 직접 만들어 코드를 관리할 수 있도록 작성하는 모듈입니다.
+
+
+1. 모듈 작성
+module.exports = () => {
+    모듈내의 코드
+    ...
+    ...
+}
+
+사용
+const 객체명 = require('파일명');
+
+
+2. 모듈 작성
+모듈내의 코드
+...
+...
+module.export = 변수;
+
+사용
+const 객체명 = require('변수명');
+
+JSON.parse()
+JSON 포맷으로 되어 있는  문자열을 json객체로 변환
+JSON.parse(String 문자열)
+
+JSON.stringify()
+JSON 객체를 JSON포맷을 문자열로 변환
+JSON.stringify(JSON 객체)
+
+01098687456(비상 연락망)
